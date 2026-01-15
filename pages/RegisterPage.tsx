@@ -17,6 +17,7 @@ const RegisterPage: React.FC = () => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
+    mobile: '',
     password: '',
     confirmPassword: '',
     department: '' as UserRole | '',
@@ -106,15 +107,21 @@ const RegisterPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="space-y-2">
-            <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Assigned Sector (Clearance Level)</label>
-            <select name="department" value={formData.department} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm font-bold" required>
-              <option value="">Select Operational Role...</option>
-              <option value={UserRole.SOC}>SOC - Security Operations (Monitoring)</option>
-              <option value={UserRole.DFIR}>DFIR - Forensics & Incident Response</option>
-              <option value={UserRole.SYS}>SYS - System Administration (Identity)</option>
-              <option value={UserRole.INT}>INT - Threat Intelligence (Feeds)</option>
-            </select>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Mobile Number</label>
+              <input type="tel" name="mobile" value={formData.mobile} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm" placeholder="+1 (555) 000-0000" required />
+            </div>
+            <div className="space-y-2">
+              <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Assigned Sector (Clearance Level)</label>
+              <select name="department" value={formData.department} onChange={handleChange} className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm font-bold" required>
+                <option value="">Select Operational Role...</option>
+                <option value={UserRole.SOC}>SOC - Security Operations (Monitoring)</option>
+                <option value={UserRole.DFIR}>DFIR - Forensics & Incident Response</option>
+                <option value={UserRole.SYS}>SYS - System Administration (Identity)</option>
+                <option value={UserRole.INT}>INT - Threat Intelligence (Feeds)</option>
+              </select>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

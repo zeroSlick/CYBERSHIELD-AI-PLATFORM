@@ -14,6 +14,7 @@ export interface User {
   isActive: boolean;
   lastLogin: string;
   department?: string;
+  mobile?: string;
 }
 
 export enum Severity {

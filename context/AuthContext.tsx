@@ -28,7 +28,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           email: profile.email || '',
           role: (profile.user_metadata?.role as UserRole) || UserRole.SOC,
           isActive: true,
-          lastLogin: new Date().toISOString()
+          lastLogin: new Date().toISOString(),
+          mobile: profile.user_metadata?.mobile || ''
         });
       }
       setIsLoading(false);
@@ -43,7 +44,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           email: profile.email || '',
           role: (profile.user_metadata?.role as UserRole) || UserRole.SOC,
           isActive: true,
-          lastLogin: new Date().toISOString()
+          lastLogin: new Date().toISOString(),
+          mobile: profile.user_metadata?.mobile || ''
         });
       } else {
         setUser(null);
@@ -71,7 +73,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         data: {
           username: userData.username,
           department: userData.department,
-          role: userData.role // This is the UserRole (SOC, DFIR, etc)
+          role: userData.role, // This is the UserRole (SOC, DFIR, etc)
+          mobile: userData.mobile
         }
       }
     });

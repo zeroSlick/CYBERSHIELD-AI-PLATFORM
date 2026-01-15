@@ -4,9 +4,9 @@ import { User, UserRole, AuditLog } from '../types';
 
 const UserManagementPage: React.FC = () => {
   const [users, setUsers] = useState<User[]>([
-    { id: 'u-1', username: 'admin', email: 'admin@shield.ai', role: UserRole.ADMIN, isActive: true, lastLogin: '2023-11-20T10:00:00Z' },
-    { id: 'u-2', username: 'jsmith', email: 'j.smith@shield.ai', role: UserRole.ANALYST, isActive: true, lastLogin: '2023-11-20T08:30:00Z' },
-    { id: 'u-3', username: 'rdoe', email: 'r.doe@shield.ai', role: UserRole.INVESTIGATOR, isActive: false, lastLogin: '2023-11-18T16:45:00Z' },
+    { id: 'u-1', username: 'admin', email: 'admin@shield.ai', role: UserRole.SYS, isActive: true, lastLogin: '2023-11-20T10:00:00Z' },
+    { id: 'u-2', username: 'jsmith', email: 'j.smith@shield.ai', role: UserRole.SOC, isActive: true, lastLogin: '2023-11-20T08:30:00Z' },
+    { id: 'u-3', username: 'rdoe', email: 'r.doe@shield.ai', role: UserRole.DFIR, isActive: false, lastLogin: '2023-11-18T16:45:00Z' },
   ]);
 
   const auditLogs: AuditLog[] = [
@@ -59,8 +59,10 @@ const UserManagementPage: React.FC = () => {
                   </td>
                   <td className="px-6 py-4">
                     <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${
-                      u.role === UserRole.ADMIN ? 'bg-indigo-500/10 text-indigo-400' :
-                      u.role === UserRole.INVESTIGATOR ? 'bg-emerald-500/10 text-emerald-500' :
+                      u.role === UserRole.SYS ? 'bg-amber-500/10 text-amber-400' :
+                      u.role === UserRole.SOC ? 'bg-indigo-500/10 text-indigo-400' :
+                      u.role === UserRole.DFIR ? 'bg-emerald-500/10 text-emerald-500' :
+                      u.role === UserRole.INT ? 'bg-rose-500/10 text-rose-400' :
                       'bg-slate-800 text-slate-400'
                     }`}>
                       {u.role}
