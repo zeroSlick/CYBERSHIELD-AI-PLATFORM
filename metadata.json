@@ -1,0 +1,8 @@
+{
+  "name": "CyberShield AI Platform",
+  "description": "Enterprise-grade AI-powered cyber threat detection and digital forensics platform with real-time monitoring and forensic case management.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
